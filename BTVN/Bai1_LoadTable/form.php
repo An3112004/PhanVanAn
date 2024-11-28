@@ -173,40 +173,29 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Administration</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Peter Parker</td>
-                        <td>Customer Service</td>
-                        <td>(313) 555-5735</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fran Wilson</td>
-                        <td>Human Resources</td>
-                        <td>(503) 555-9931</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
+                    <?php
+                    $employees = [
+                        ["name" => "John Doe", "department" => "Administration", "phone" => "(171) 555-2222"],
+                        ["name" => "Peter Parker", "department" => "Customer Service", "phone" => "(313) 555-5735"],
+                        ["name" => "Fran Wilson", "department" => "Human Resources", "phone" => "(503) 555-9931"]
+                    ];
+                    foreach ($employees as $employee) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($employee['name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($employee['department']) . "</td>";
+                        echo "<td>" . htmlspecialchars($employee['phone']) . "</td>";
+                        echo '<td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                              </td>';
+                        echo "</tr>";
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
     </div>
-</div>     
+</div>
 </body>
 </html>
