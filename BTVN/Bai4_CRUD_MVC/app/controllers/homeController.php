@@ -61,7 +61,7 @@ class HomeController{
                     echo "loi";
                 }
                 $this->imgService->addImg(new ImageModel($name , $description , $fileDestination));
-                header('Location: /CRUD_MVC/public/');
+                header('Location: /BTVN/Bai4_CRUD_MVC/public/');
                 exit();
             }
     }
@@ -121,7 +121,7 @@ class HomeController{
                     echo "loi";
                 }
                 $this->imgService->EditImg(new ImageModel($name , $description , $image) ,$editIndex);
-                header('Location: /CRUD_MVC/public/');
+                header('Location: /BTVN/Bai4_CRUD_MVC/public/');
                 exit();
             }
         }
@@ -137,7 +137,7 @@ class HomeController{
                 // Xóa phần tử khỏi danh sách
                 $this->imgService->RemoveImg($deleteIndex);
                 }
-                header('Location: /CRUD_MVC/public/');
+                header('Location: /BTVN/Bai4_CRUD_MVC/public/');
             exit();
         }
     }
