@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +30,7 @@
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
             </div>
             <div class="form-group">
-                <label for="formFile" class="form-label">Default file input example</label>
+                <label for="image" class="form-label">Default file input example</label>
                 <input class="form-control" type="file" name="fileToUpload" id="fileToUpload" required>
             </div>
             <button type="submit" class="btn btn-primary">Thêm</button>

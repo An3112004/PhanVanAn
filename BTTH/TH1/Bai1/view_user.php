@@ -1,8 +1,3 @@
-<?php
-include 'list.php';
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,7 +93,7 @@ h1 {
     <div class="container">
         <h1>Danh sách các loài hoa</h1>
         <div class="flower-list">
-            <?php foreach ($_SESSION['flowers'] as $flower): ?>
+            <?php foreach (): ?>
                 <div class="flower-item">
                     <img src="<?= $flower['image']?>" alt="<?= $flower['name'] ?>" class="flower-image">
                     <h2><?= $flower['name'] ?></h2>

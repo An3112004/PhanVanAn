@@ -32,7 +32,6 @@ $image = $_GET['image'] ?? '';
 <body>
     <div class="container-fluid bcontent">
         <h2 class="text-center mb-4">SỬA</h2>
-        <hr />
         <div class="container">
         <form action="" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="editIndex" name="edit_index" value="<?= htmlspecialchars($index) ?>">
