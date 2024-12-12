@@ -4,14 +4,14 @@
 # Nhưng giữ lại thư mục folder_name
 !BTTH/
 !BTVN/
-!BTVN_TH3/app
-!BTVN_TH3/database
-!BTVN_TH3/resources
-!BTVN_TH3/routers
-!TH3/app
-!TH3/database
-!TH3/resources
-!TH3/routers
+!BTVN_TH3/app/
+!BTVN_TH3/database/
+!BTVN_TH3/resources/
+!BTVN_TH3/routers/
+!TH3/app/
+!TH3/database/
+!TH3/resources/
+!TH3/routers/
 
 
 
