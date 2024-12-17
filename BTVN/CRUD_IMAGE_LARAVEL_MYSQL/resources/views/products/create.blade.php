@@ -1,17 +1,3 @@
-<!-- <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <label for="name">Tên sản phẩm:</label>
-    <input type="text" name="name">
-    
-    <label for="price">Giá sản phẩm:</label>
-    <input type="text" name="price">
-    
-    <label for="image">Chọn ảnh:</label>
-    <input type="file" name="image">
-
-    <button type="submit">Thêm sản phẩm</button>
-</form> -->
-
 <!DOCTYPE html>
 <html lang="vi">
 

@@ -115,6 +115,56 @@
         table.table td .add {
             display: none;
         }
+
+        .btn-close {
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            color: #000;
+        }
+
+        .btn-close:hover {
+            color: red;
+        }
+
+        .btn-close:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .table td a.edit,
+        .table td form {
+            display: inline-block;
+            /* Giúp các phần tử nằm cạnh nhau */
+            margin-right: 5px;
+            /* Khoảng cách giữa nút Sửa và Xóa */
+        }
+
+        .table td form button.delete {
+            background-color: #E34724;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .table td form button.delete:hover {
+            background-color: #c63c20;
+        }
+
+        .table td a.edit button {
+            background-color: #FFC107;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .table td a.edit button:hover {
+            background-color: #e0a800;
+        }
     </style>
 </head>
 
@@ -125,37 +175,57 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-8">
-                            <h2>Employee <b>Details</b></h2>
+                            <h2>CRUD</h2>
                         </div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                            <a href="{{ route('sale.create') }}"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
                         </div>
                     </div>
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
+
                 </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Content</th>
-                            <th>Action</th>
+                            <th>Tên thuốc</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Ngày bán</th>
+                            <th>Số điện thoại khách hàng</th>
+                            <th>Chức năng</th>
                         </tr>
+
                     </thead>
                     <tbody>
-                        @foreach($posts as $post)
+                        @foreach ($data as $item)
                         <tr>
-                            <td>{{ $post->id }}</td>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->content }}</td>
+                            <td>{{ $item->medicine->name }}</td> <!-- Tên thuốc -->
+                            <td>{{ number_format($item->medicine->price, 2) }} VND</td> <!-- Giá (định dạng tiền tệ) -->
+                            <td>{{ $item->quantity }}</td> <!-- Số lượng -->
+                            <td>{{ date('d/m/Y H:i', strtotime($item->sale_date)) }}</td> <!-- Ngày bán (định dạng ngày) -->
+                            <td>{{ $item->customer_phone ?? 'N/A' }}</td> <!-- Số điện thoại khách hàng -->
                             <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a href="{{ route('sale.edit', $item->sale_id) }}" class="edit" title="Edit">
+                                    <button type="button">Edit</button>
+                                </a>
+                                <form action="{{ route('sale.destroy', $item->sale_id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="delete" type="submit">Delete</button>
+                                </form>
                             </td>
+
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
